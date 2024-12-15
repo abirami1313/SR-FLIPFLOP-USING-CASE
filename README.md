@@ -42,6 +42,24 @@ PROGRAM
 Developed by:ABIRAMI A
 RegisterNumber:24900822
 
+module sr_ff(s,r,clk,q,qbar);
+input s,r,clk;
+output reg q;
+output reg qbar;
+initial 
+begin
+q=0;
+qbar=1;
+end
+always @(posedge clk)
+begin
+   q=s|(~r&q);
+   qbar=r|(~s&~q);
+end
+endmodule
+
+
+
 ![image](https://github.com/user-attachments/assets/5da94d0d-34f4-46b3-8c9a-a62bdefe1133)
 
 
